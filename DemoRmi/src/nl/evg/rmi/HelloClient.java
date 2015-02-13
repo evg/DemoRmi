@@ -9,9 +9,10 @@ public class HelloClient {
 
     public static void main(String[] args) {
 
-        String host = (args.length < 1) ? null : args[0];
+        String host = null;
+        int port = 1098;
         try {
-            Registry registry = LocateRegistry.getRegistry(host);
+            Registry registry = LocateRegistry.getRegistry(host, port);
             Hello stub = (Hello) registry.lookup("Hello");
             String response = stub.sayHello();
             System.out.println("response: " + response);
