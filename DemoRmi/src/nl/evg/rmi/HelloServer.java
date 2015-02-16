@@ -1,10 +1,8 @@
 package nl.evg.rmi;
 
-import java.net.BindException;
-import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
-import java.rmi.server.UnicastRemoteObject;
+import java.rmi.*;
+import java.rmi.registry.*;
+import java.rmi.server.*;
 
 public class HelloServer implements Hello {
 
