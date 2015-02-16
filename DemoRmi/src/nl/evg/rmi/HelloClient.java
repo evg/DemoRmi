@@ -19,6 +19,8 @@ public class HelloClient {
             	Hello stub = (Hello) registry.lookup("Hello created by server-"+i);
             	String response = stub.sayHello();
             	System.out.println("response from server "+i+": " + response);
+            	EmployerImpl emp = stub.getEmployer();
+                System.out.println("emp="+emp+"; oid="+emp.oid);
             }
         } catch (Exception e) {
             System.err.println("Client exception: " + e.toString());

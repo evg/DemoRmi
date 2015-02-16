@@ -5,11 +5,6 @@ import java.rmi.registry.*;
 import java.rmi.server.*;
 
 public class HelloServer implements Hello {
-
-	@Override
-	public String sayHello() throws RemoteException {
-        return "Hello, world!";
-    }
         
     public static void main(String args[]) {
         
@@ -43,14 +38,26 @@ public class HelloServer implements Hello {
             
             HelloServer obj = new HelloServer();
             Hello stub = (Hello) UnicastRemoteObject.exportObject(obj, 0);
-
             
             // Bind the remote object's stub in the registry
             registry.bind("Hello created by "+name, stub);
 
+            
         } catch (Exception e) {
             System.err.println("Server exception: " + e.toString());
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public String sayHello() throws RemoteException 
+    {
+        return "Hello, world!";
+    }
+
+    @Override
+    public EmployerImpl getEmployer() throws RemoteException
+    {
+      return new EmployerImpl(123);
     }
 }
