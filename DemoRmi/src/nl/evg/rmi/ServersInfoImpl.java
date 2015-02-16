@@ -5,12 +5,12 @@ import java.rmi.RemoteException;
 public class ServersInfoImpl implements ServersInfo {
 
 	@Override
-	public Integer getNofRegisteredServers() throws RemoteException {
+	public synchronized Integer getNofRegisteredServers() throws RemoteException {
 		return nofRegisteredServers;
 	}
 
 	@Override
-	public void incNofRegisteredServers() throws RemoteException {
+	public synchronized void incNofRegisteredServers() throws RemoteException {
 		nofRegisteredServers++;
 	}
 	
